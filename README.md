@@ -1,2 +1,2 @@
-# Learning-PySpark
-Repo to store code written while learning PySpark
+# Learning-Scala
+Repo to store code written while learning Scala
