@@ -1,5 +1,5 @@
 object HelloWorld {
-  def main(args: Array[String]): Unit ={
+  def main(args: Array[String]): Unit = {
     //string interpolation
     val name = "Mohamed";
     val age = 22;

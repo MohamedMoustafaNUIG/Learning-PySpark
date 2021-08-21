@@ -1,4 +1,4 @@
-name := "ScalaSample"
+name := "Scala Tutorial for Beginners"
 
 version := "0.1"
 
