@@ -65,9 +65,9 @@ object Basics {
     println(results)
   }
 
-  def match_expressions(): Unit = {
+  object MatchExpressions {
     val age = 18;
-    age match {
+    val res = age match {
       case 20 => println("Age is " + age);
       case 30 => println("Age is " + age);
       case _ => println("Default case");
@@ -78,7 +78,26 @@ object Basics {
       case _ => 1;
     }
 
-    println(result);
+    //println(result);
+
+    val res1 =
+      List(1,2,3,4,5,6,7,8,9) match {
+        case List(_, _, third, fourth, _*) if third > fourth-1 => true;
+        case _ => false;
+      }
+
+    val List(_, _, third, fourth, rest @ _*) = List(1,2,3,4,5,6,7,8,9);
+  }
+
+  def exception_handling() = {
+    try println(1/0)
+    catch {
+      case e: ArithmeticException =>
+        println(Console.RED);
+        e.printStackTrace();
+        println(Console.RESET);
+    }
+    finally println("no worries, it is all good :)");
   }
 
   object Strings {
@@ -92,7 +111,10 @@ object Basics {
 
     //loops();
 
-    match_expressions();
+    //print(MatchExpressions.res1);
+    //println(MatchExpressions.rest);
+
+    exception_handling();
 
     //println(Strings.details);
     //println("%s is %d years old".format(Strings.name, Strings.age));

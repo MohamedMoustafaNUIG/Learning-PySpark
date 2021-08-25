@@ -30,13 +30,19 @@ object Functions {
 
     def math(x: Double, y: Double, f: (Double, Double) => Double): Double = f(x, y);
 
-    def mathThree(x: Double, y: Double, z: Double, f: (Double, Double) => Double): Double = f(f(x, y), z);
+    def math_three(x: Double, y: Double, z: Double, f: (Double, Double) => Double): Double = f(f(x, y), z);
+
+    def int_to_string(option: Option[Int]): Option[String] =
+      option match{
+        case Some(n) => Some((n).toString);
+        case None => Some("Sorry didn't work");
+      }
   }
 
   //Partially Applied Functions
   object PAF {
     //example 1
-    val paf = Func.mathThree(0, _: Double, _: Double, (x, y) => x + y);
+    val paf = Func.math_three(0, _: Double, _: Double, (x, y) => x + y);
     val f = paf(100, 200);
 
     //example 2
@@ -45,7 +51,7 @@ object Functions {
     }
 
     val date = new Date();
-    val newlog = log(date, _: String);
+    val new_log = log(date, _: String);
   }
 
   //Closures
@@ -79,12 +85,18 @@ object Functions {
     println(Func.math(200.20, 300.30, Func.addD));
     println(Func.math(200, 300, (x,y)=>x*y));
     println(Func.math(200, 300, (x,y)=>x min y));
-    println(Func.mathThree(200, 300, 400, _ max _) );
-    println(Func.mathThree(20, 30, _: Double, (x,y)=>x+y));
+    println(Func.math_three(200, 300, 400, _ max _) );
+    println(Func.math_three(20, 30, _: Double, (x,y)=>x+y));
     */
 
+    val op1: Option[Int] = Some(20);
+    val op2: Option[Int] = None;
+
+    println(Func.int_to_string(op1));
+    println(Func.int_to_string(op2));
+
     //println(PAF.f)
-    //println(PAF.newlog("Error: Meltdown"));
+    //println(PAF.new_log("Error: Meltdown"));
 
     //println(Closures.add(20));
 

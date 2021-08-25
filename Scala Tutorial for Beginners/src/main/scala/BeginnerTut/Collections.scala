@@ -15,6 +15,8 @@ object Collections {
     val allOnes = List.fill(5)(1);
 
     def minor(x: Int) = println(if (x > 18) true else false);
+
+    val (even, odd) = List(1,2,3,4,5,6).partition(_ % 2 == 0);
   }
 
   object Sets {
@@ -46,6 +48,17 @@ object Collections {
   object MapAndFilter {
     val lst = List(1, 2, 3, 4);
     val myMap = Map(1 -> "Tom", 2 -> "Max", 3 -> "Bob");
+
+    def map_to_lower(): Unit ={
+      var map1 = Map(1 -> "Tom", 2 -> "Max", 3 -> "Bob");
+      var res = map1
+        .map{
+          case (key, value) => key -> value.toLowerCase
+        }
+        .foreach(println);
+      println(map1);
+      println(res);
+    }
   }
 
   object ReduceFoldOrScan {
@@ -61,14 +74,18 @@ object Collections {
     var res5 = lst.scanLeft(10)(_ + _);
   }
 
+  object NewCollectionType{
+    def apply(ints: Int*): Seq[Int] = ints;
+  }
+
   def main(args: Array[String]): Unit ={
     /*
-  println(Arrays.myArray(0));
-  for (x<- Arrays.myArray){
-    println(x);
-  }
-  println(Arrays.myArray3.length);
-  */
+    println(Arrays.myArray(0));
+    for (x<- Arrays.myArray){
+      println(x);
+    }
+    println(Arrays.myArray3.length);
+    */
 
     /*
     println("Jennifer" :: Lists.names);
@@ -76,6 +93,8 @@ object Collections {
     println(Lists.allOnes);
     Lists.names.foreach(println);
     print(Lists.ages.foreach(Lists.minor));
+
+    println(Lists.even);
     */
 
     /*
@@ -113,6 +132,8 @@ object Collections {
     println(MapAndFilter.lst.flatMap(x => List(x, x+1)));
 
     println(MapAndFilter.lst.filter(x => x%2 == 0));
+
+    MapAndFilter.map_to_lower();
     */
 
     /*
@@ -120,5 +141,7 @@ object Collections {
     println(ReduceFoldOrScan.res4);
     println(ReduceFoldOrScan.res5);
     */
+
+    println(NewCollectionType.apply(1,2,3,4,5));
   }
 }

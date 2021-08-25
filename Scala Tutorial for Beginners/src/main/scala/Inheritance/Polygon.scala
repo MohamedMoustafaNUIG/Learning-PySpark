@@ -3,6 +3,7 @@ package Inheritance
 trait Shape {
   def color: String;
 }
+
 abstract class Polygon {
   def area : Double;
 }
